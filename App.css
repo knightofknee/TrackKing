@@ -1,0 +1,32 @@
+  /* https://www.kindacode.com/article/how-to-create-a-read-more-less-button-in-react/
+.container {
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card {
+  width: 43%;
+  padding: 15px 20px;
+  background: #fffde7;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.text {
+  width: 100%;
+}
+
+/* Style the read more/less button
+.toggle-button {
+  margin-left: 7px;
+  color: blue;
+  cursor: pointer;
+}
+
+.toggle-button:hover {
+  color: red;
+  text-decoration: underline;
+} */

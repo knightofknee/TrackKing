@@ -20,10 +20,12 @@ import {
 import {
   Colors,
   DebugInstructions,
-  Header,
   LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import ExpandableText from './Components/ExpendableText';
+
+import GoalsSection from './Components/GoalsSection';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -37,7 +39,7 @@ function Section({children, title}: SectionProps): JSX.Element {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: Colors.black,
           },
         ]}>
         {title}
@@ -46,7 +48,7 @@ function Section({children, title}: SectionProps): JSX.Element {
         style={[
           styles.sectionDescription,
           {
-            color: isDarkMode ? Colors.light : Colors.dark,
+            color: Colors.dark,
           },
         ]}>
         {children}
@@ -62,33 +64,29 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const welcome = `Add your goals below to get started. Below I have listed the daily goals I have chosen and an option for creating your own. Track King has two goals: to give you the ideal tool for helping improve your life, and to give you the ideal tool for what you want. It is unlikely for someone to know their best route for improvement, while at the same time, you know you better than anyone else. I seek to optimize for both, I will leave judgement to future statistics. I want to give the user choice. We can have both, a default option that has superior statistics, and advanced options that offer any customization you desire.`
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
+            <Section title="Welcome to Track King">
+            <ExpandableText descriptionLength={148} children={welcome} />
+            </Section>
+          {/* <Section title="Debug">
             <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
+          </Section> */}
+          <GoalsSection />
           <LearnMoreLinks />
         </View>
       </ScrollView>
